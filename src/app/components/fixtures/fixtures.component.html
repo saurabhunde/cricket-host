@@ -1,9 +1,24 @@
-<ul>
-    <li *ngFor="let fixture of fixtures;">
-        {{fixture.team1}} vs {{fixture.team2}}<br/>
-        {{fixture.statusDetails}}
-        <div *ngIf="tournamentDetailsService.host">
-            <button>{{fixture.status == 'not started' ? 'Add' : 'Edit'}}</button>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <table class='table'>
+                <thead>
+                    <tr>
+                        <th>DATE</th>
+                        <th>MATCH</th>
+                        <th>RESULT</th>
+                        <th *ngIf="tournamentDetailsService.host">Add/Edit</th>
+                    </tr>
+                    <tr *ngFor="let fixture of fixtures;">
+                        <td>{{fixture.date}}</td>
+                        <td>{{fixture.team1}} vs {{fixture.team2}}</td>
+                        <td>{{fixture.statusDetails}}</td>
+                        <td *ngIf="tournamentDetailsService.host">
+                            <button>{{fixture.status == 'not started' ? 'Add' : 'Edit'}}</button>
+                        </td>
+                    </tr>
+                </thead>
+            </table>
         </div>
-    </li>
-</ul>
+    </div>
+</div>
